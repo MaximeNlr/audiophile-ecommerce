@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('../src/assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --custom-orange: #D87D4A;
+  --custom-orange2: #fbaf85;
+  --custom-grey: #F1F1F1;
+  --custom-white: #FAFAFA;
+  --custom-black: #101010;
+  --custom-black2: #191919;
+  --font-manrope: "Manrope", "sans-serif";
+}
+
+.primary-btn {
+  @apply bg-[var(--custom-orange)] text-center hover:bg-[var(--custom-orange2)] text-white w-[160px] px-6 py-3 whitespace-nowrap uppercase tracking-wide cursor-pointer transition-colors duration-300;
+}
+
+.secondary-btn {
+  @apply border-2 border-black text-center text-black px-5 py-3 hover:bg-black w-[160px] hover:text-white whitespace-nowrap transition-colors duration-300 cursor-pointer;
+}
+
+p {
+  @apply leading-[25px] text-[15px]
+}
+
+.input-style {
+  @apply border border-gray-300 rounded-md px-4 py-4 text-sm outline-none focus:ring-2 focus:ring-[var(--custom-orange)] transition-colors duration-300;
+}
+
+p {
+  @apply text-[17px] leading-[25px]
+}
+
+.header-footer-link {
+  @apply hover:text-[var(--custom-orange)] transition-colors duration-300
+}
