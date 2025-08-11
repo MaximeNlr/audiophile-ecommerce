@@ -56,7 +56,8 @@ export default function MobileHeader() {
                                 animate={{ x: 0 }}
                                 exit={{ x: -400 }}
                                 transition={{ duration: 0.3 }}
-                                className="absolute h-[calc(100vh-80px)] md:h-fit top-20 left-0 w-full bg-white z-40 overflow-y-auto py-10 md:py-0 md:pb-12"
+                                className="absolute h-[calc(100vh-80px)] md:h-fit top-20 left-0 w-full bg-white
+                                    z-40 overflow-y-auto pb-[calc(40px+env(safe-area-inset-bottom))] md:py-0 md:pb-12"
                             >
                                 <ProductCategories setIsActive={setIsActive} />
                             </motion.div>

@@ -13,7 +13,7 @@ export default function ProductMain({ product }) {
                 <source media="(min-width:1024px)" srcSet={product.image.desktop.replace('./', '/')} />
                 <source media="(min-width:640px)" srcSet={product.image.tablet.replace('./', '/')} />
                 <img
-                    className="rounded-lg md:h-[600px]"
+                    className="rounded-lg md:h-[600px] lg:min-w-[560px]"
                     src={product.image.mobile.replace('./', '/')}
                     alt="product image"
                 />
@@ -21,18 +21,18 @@ export default function ProductMain({ product }) {
             <div className="flex flex-col md:justify-center gap-5 lg:gap-10">
                 {product.new &&
                     <p
-                        className="text-[var(--custom-orange)] tracking-[10px]"
+                        className="text-[var(--custom-orange)] tracking-[10px] text-[17px] leading-[25px]"
                     >
                         NEW PRODUCT
                     </p>
                 }
                 <h1
-                    className="text-3xl md:text-5xl w-[80%] md:w-1/2 font-semibold"
+                    className="text-3xl md:text-5xl w-[80%] font-semibold"
                 >
                     {product.name}
                 </h1>
-                <p className="opacity-70">{product.description}</p>
-                <p className="font-bold"><data value={product.price}>$ {product.price.toLocaleString('en-US')}</data></p>
+                <p className="opacity-70 text-[17px] leading-[25px]">{product.description}</p>
+                <p className="font-bold text-[17px] leading-[25px]"><data value={product.price}>$ {product.price.toLocaleString('en-US')}</data></p>
                 <div className="flex flex-row items-center gap-5">
                     <div className="text-black w-[120px] flex flex-row justify-between px-4 py-3 bg-[var(--custom-grey)]">
                         <button

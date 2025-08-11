@@ -26,8 +26,8 @@ export default function ProductRecommandations({ others }) {
                         key={product.name}
                         className="flex flex-col items-center gap-5"
                     >
-                        <div className="bg-[var(--custom-grey)] ">
-                            <div className="w-fit overflow-hidden">
+                        <div className="bg-[var(--custom-grey)]">
+                            <div className="w-fit lg:overflow-hidden">
                                 <picture>
                                     <source media="(min-width:1024px)" srcSet={product.image.desktop.replace('./', '/')} />
                                     <source media="(min-width:640px)" srcSet={product.image.tablet.replace('./', '/')} />
@@ -43,7 +43,7 @@ export default function ProductRecommandations({ others }) {
                                 </picture>
                             </div>
                         </div>
-                        <p className="text-2xl font-bold tracking-[2px]">{product.name.toUpperCase()}</p>
+                        <p className="text-2xl font-bold text-[17px] leading-[25px]">{product.name.toUpperCase()}</p>
                         <button
                             onClick={() => fetchProduct(product)}
                             className="primary-btn"

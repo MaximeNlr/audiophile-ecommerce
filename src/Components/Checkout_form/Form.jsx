@@ -12,6 +12,8 @@ export default function Form({ setIsSubmitted }) {
         zip: "",
         country: "",
         payment: "",
+    })
+    const [paymentData, setpaymentData] = useState({
         eNumber: "",
         pin: ""
     })
@@ -20,15 +22,36 @@ export default function Form({ setIsSubmitted }) {
         e.preventDefault()
 
         const isEmptyField = Object.values(formData).some((value) => value.trim() === "")
-        console.log(isEmptyField);
-
+        const findPayment = Object.values(formData).find((index) => index.payment === "eMoney")
 
         if (isEmptyField) {
             alert("Veuillez remplir tous les champs !")
             return
+        }
+        if (findPayment) {
+            const isEmptyPaymentInfo = Object.values(paymentData).some((value) => value.trim() === "")
+            console.log(isEmptyPaymentInfo);
+
+            if (isEmptyPaymentInfo) {
+                alert("Veuillez remplir tous les champs !")
+                return
+            } else {
+                setIsSubmitted(true)
+            }
         } else {
             setIsSubmitted(true)
         }
+    }
+
+    const handlePayment = () => {
+        setEMoneyIsActive(true)
+        setIsCash(false)
+    }
+
+    const handleCash = () => {
+        setEMoneyIsActive(false)
+        setIsCash(true)
+        setFormData({ ...formData, eNumber: "null", pin: "null" })
     }
 
     return (
@@ -133,7 +156,7 @@ export default function Form({ setIsSubmitted }) {
                     <span className="font-semibold text-sm ">Payment Method</span>
                     <div className="flex flex-col items-end gap-3">
                         <label
-                            onClick={() => setEMoneyIsActive(true)}
+                            onClick={handlePayment}
                             className={eMoneyIsActive ? 'flex items-center gap-3 border-2 border-[var(--custom-orange)] w-full md:w-1/2 rounded-lg px-5 py-4 cursor-pointer' :
                                 'flex items-center gap-3 border-2 border-gray-300  w-full md:w-1/2 rounded-lg px-5 py-4 cursor-pointer'}
                         >
@@ -147,9 +170,9 @@ export default function Form({ setIsSubmitted }) {
                             <span className="text-sm">e-Money</span>
                         </label>
                         <label
-                            onClick={() => setEMoneyIsActive(false)}
-                            className={eMoneyIsActive ? 'flex items-center gap-3 border-2 border-gray-300  w-full md:w-1/2 rounded-lg px-5 py-4 cursor-pointer' :
-                                'flex items-center gap-3 border-2 border-[var(--custom-orange)] w-full md:w-1/2 rounded-lg px-5 py-4 cursor-pointer'}
+                            onClick={handleCash}
+                            className={isCash ? 'flex items-center gap-3 border-2 border-[var(--custom-orange)] w-full md:w-1/2 rounded-lg px-5 py-4 cursor-pointer' :
+                                'flex items-center gap-3 border-2 border-gray-300  w-full md:w-1/2 rounded-lg px-5 py-4 cursor-pointer'}
                         >
                             <input
                                 type="radio"
@@ -168,7 +191,7 @@ export default function Form({ setIsSubmitted }) {
                                         id="emoney"
                                         name="emoney"
                                         type="text"
-                                        onChange={(e) => setFormData({ ...formData, eNumber: e.target.value })}
+                                        onChange={(e) => setpaymentData({ ...paymentData, eNumber: e.target.value })}
                                         autoComplete="emoney"
                                         className="input-style w-full"
                                     />
@@ -179,7 +202,7 @@ export default function Form({ setIsSubmitted }) {
                                         id="pin"
                                         name="pin"
                                         type="text"
-                                        onChange={(e) => setFormData({ ...formData, pin: e.target.value })}
+                                        onChange={(e) => setpaymentData({ ...paymentData, pin: e.target.value })}
                                         autoComplete="pin"
                                         className="input-style w-full"
                                     />
@@ -189,6 +212,6 @@ export default function Form({ setIsSubmitted }) {
                     </div>
                 </div>
             </fieldset>
-        </form>
+        </form >
     )
 }

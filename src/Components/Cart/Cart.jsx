@@ -14,13 +14,19 @@ export default function Cart() {
     const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {
+
+        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
+
         if (isActive) {
             document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
         } else {
             document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
         }
         return () => {
             document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
         };
     }, [isActive]);
 
@@ -54,7 +60,7 @@ export default function Cart() {
                         {cart.length > 0 &&
                             <div>
                                 <div className="flex items-center justify-between mb-6">
-                                    <p className="text-lg font-bold tracking-widest">CART</p>
+                                    <p className="text-lg font-bold tracking-widest">CART ({totalQuantity})</p>
                                     <button
                                         onClick={() => clearCart()}
                                         className="text-sm opacity-70 cursor-pointer hover:text-[var(--custom-orange2)] transition-colors">Remove all</button>
@@ -74,8 +80,8 @@ export default function Cart() {
                                             />
                                         </picture>
                                         <div className="flex-1 ml-4">
-                                            <p className="text-sm font-bold">{item.product.slug2}</p>
-                                            <p className="text-sm text-gray-500">$ {item.product.price.toLocaleString('en-US')}</p>
+                                            <p className="font-bold text-[15px]">{item.product.slug2}</p>
+                                            <p className=" text-gray-500 text-[14px]">$ {item.product.price.toLocaleString('en-US')}</p>
                                         </div>
                                         <div className="w-[96px] flex items-center justify-between px-2 py-1 bg-[var(--custom-grey)]">
                                             {item.quantity > 1 ? (
@@ -93,7 +99,7 @@ export default function Cart() {
                                                     <FiTrash2 />
                                                 </button>
                                             )}
-                                            <p className="text-sm font-medium">{item.quantity}</p>
+                                            <p className="text-[13px] font-medium">{item.quantity}</p>
                                             <button
                                                 onClick={() => incrButton(item, item.quantity)}
                                                 className="opacity-50 hover:text-[var(--custom-orange2)] text-sm hover:opacity-100 cursor-pointer"

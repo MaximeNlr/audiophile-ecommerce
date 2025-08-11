@@ -29,7 +29,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col gap-8 text-center lg:text-left items-center lg:items-baseline lg:justify-center lg:w-1/3">
                     <h2 className="flex flex-col text-4xl font-semibold tracking-[2px] md:text-6xl py-5">ZX9<span>SPEAKER</span></h2>
-                    <p className="opacity-75 font-medium md:w-1/2 lg:w-fit">
+                    <p className="opacity-75 font-medium md:w-1/2 lg:w-fit text-[17px] leading-[25px]">
                         Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
                     </p>
                     <Link

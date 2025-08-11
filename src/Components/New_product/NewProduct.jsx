@@ -14,6 +14,7 @@ export default function NewProduct() {
                 flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-between text-white px-4 lg:px-40">
             <AnimatePresence>
                 <motion.div
+                    key={newProduct.name}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
@@ -25,7 +26,7 @@ export default function NewProduct() {
                     <h1 className="text-4xl md:text-6xl font-bold uppercase leading-tight tracking-[2px] mb-6">
                         XX99 Mark II <span className="block">Headphones</span>
                     </h1>
-                    <p className="opacity-75 mb-6 text-sm md:text-base lg:pr-32">
+                    <p className="opacity-75 mb-6 text-[17px] leading-[25px] lg:pr-32">
                         Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
                     </p>
                     <Link

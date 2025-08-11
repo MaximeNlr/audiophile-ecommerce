@@ -21,7 +21,7 @@ export default function ProductDetail() {
 
     return (
         <div>
-            <div className="px-5 md:px-10 lg:px-40">
+            <div className="px-5 md:px-10 lg:px-60">
                 <BackButton />
                 <ProductMain product={data} />
                 <ProductFeatures product={data} />
