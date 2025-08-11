@@ -24,7 +24,9 @@ export default function MobileHeader() {
     }, [isActive]);
 
     return (
-        <header className="fixed w-full lg:hidden flex flex-row items-center justify-between md:justify-normal md:gap-10 bg-[var(--custom-black2)] text-white h-20 px-7 py-8 border-b-[1px] border-[var(--custom-white)] z-50">
+        <header
+            className="fixed w-full lg:hidden flex flex-row items-center justify-between md:justify-normal
+                md:gap-10 bg-[var(--custom-black2)] text-white h-20 px-7 py-8 border-b-[1px] border-[var(--custom-white)] z-50">
             <div className="text-2xl">
                 {!isActive &&
                     <FaBars
@@ -57,7 +59,7 @@ export default function MobileHeader() {
                                 exit={{ x: -400 }}
                                 transition={{ duration: 0.3 }}
                                 className="absolute h-[calc(100vh-80px)] md:h-fit top-20 left-0 w-full bg-white
-                                    z-40 overflow-y-auto pb-[calc(40px+env(safe-area-inset-bottom))] md:py-0 md:pb-12"
+                                    z-40 overflow-y-auto pb-[calc(100px+env(safe-area-inset-bottom))] md:py-0 md:pb-12"
                             >
                                 <ProductCategories setIsActive={setIsActive} />
                             </motion.div>

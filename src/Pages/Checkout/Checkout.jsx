@@ -81,13 +81,13 @@ export default function Checkout() {
                 {isSubmitted &&
                     <div className="fixed inset-0 bg-black/50 z-40">
                         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col gap-5 md:gap-0 md:justify-between bg-white text-black w-[90%]
-                                h-fit md:w-[540px] md:h-[581px] px-10 py-10 rounded-lg shadow-lg z-50 overflow-y-auto">
+                                max-h-[70vh] md:w-[540px] md:h-[581px] px-10 py-5 md:py-10 rounded-lg shadow-lg z-50 overflow-y-auto">
                             <div className="h-16 w-16 bg-[var(--custom-orange)] rounded-full">
                                 <img src="./assets/checkout/icon-order-confirmation.svg" alt="" />
                             </div>
-                            <h2 className="text-3xl flex flex-col">THANK YOU <span>FOR YOUR ORDER</span></h2>
+                            <h2 className="text-2xl md:text-3xl flex flex-col">THANK YOU <span>FOR YOUR ORDER</span></h2>
                             <p className="opacity-50">You will receive an email confirmation shortly.</p>
-                            <div className="flex flex-col md:flex-row w-full rounded-lg overflow-hidden">
+                            <div className="flex flex-col md:flex-row w-full rounded-lg">
                                 <div className="flex flex-col justify-center gap-3 py-5 md:py-0 px-5 bg-[var(--custom-grey)] w-full">
                                     <div className="flex flex-row items-center justify-between">
                                         <div className="flex flex-row gap-1">
@@ -106,7 +106,7 @@ export default function Checkout() {
                                     <div className="h-[1px] w-[90%] bg-black/50"></div>
                                     <p className="opacity-50 text-center">and 2 other item(s)</p>
                                 </div>
-                                <div className="flex flex-col py-5 md:py-0 px-10 gap-3 justify-center bg-[var(--custom-black)] text-white w-full">
+                                <div className="flex flex-col py-5 px-5 md:py-0 md:px-10 gap-3 justify-center bg-[var(--custom-black)] text-white w-full">
                                     <p className="opacity-50 text-[18px]">GRAND TOTAL</p>
                                     <p className="font-semibold">$ {grandTotal}</p>
                                 </div>

@@ -31,7 +31,7 @@ p {
 }
 
 .input-style {
-  @apply border border-gray-300 rounded-md px-4 py-4 text-sm outline-none focus:ring-2 focus:ring-[var(--custom-orange)] transition-colors duration-300;
+  @apply border border-gray-300 text-[16px] rounded-md px-4 py-4 text-sm outline-none focus:ring-2 focus:ring-[var(--custom-orange)] transition-colors duration-300;
 }
 
 .header-footer-link {
